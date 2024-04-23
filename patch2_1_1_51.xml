@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch Ver="2_1_1_51" 
+   date="01112005"
+   okFrom="50" uuid="31102005-0001-0000-0000-000000000051" 
+   readmeurl="http://applianceupdate.clearswift.com/patches/Patch2_1_1_51.htm"
+   Title="Release 2.1.1 upgrade #1">
+   <desc lang="uk" PRrefs="none" 
+        grade="3" seq="51" relid="2_1_1" 
+        info="Release 2.1.1 upgrade #1" 
+        prevPatchLevel="base50.xml" /> 
+   <Pkgs> 
+     <pkg file="appdog#1.09-51.pkg.tar.gz"
+      instcmd="pkgadd -u"/> 
+     <pkg file="appjsp#1.18-51.pkg.tar.gz" 
+      instcmd="pkgadd -u"/> 
+     <pkg file="infrastructure#1.18-51.pkg.tar.gz" 
+      instcmd="pkgadd -u"/> 
+     <pkg file="msw#1.0.0.20-51.pkg.tar.gz" 
+      instcmd="pkgadd -u"/> 
+     <pkg file="uagent#1.02-51.pkg.tar.gz" 
+      instcmd="pkgadd -u"/> 
+   </Pkgs> 
+   <Info> 
+     <built at="01112005:100000"/>
+   </Info> 
+   <Scripts> 
+    <preinstall  file="../../../../etc/init.d/appservices stop" /> 
+    <postinstall file="../../../../opt/uagent/bin/.fixup21151.sh" /> 
+    <rollback removePkgs="false" 
+              applyPrev="false" 
+              file="roll21151.sh" /> 
+   </Scripts> 
+</Patch> 
